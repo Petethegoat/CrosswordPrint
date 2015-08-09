@@ -1,4 +1,4 @@
-## Crossword Print
+## ![Crossword Print](https://raw.githubusercontent.com/Petethegoat/CrosswordPrint/master/crossword-icon.png)Crossword Print
 Downloads and concatenates multiple crosswords at once, for easy printing.
 
 Currently for Guardian quick crosswords only.
