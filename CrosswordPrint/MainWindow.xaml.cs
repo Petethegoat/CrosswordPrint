@@ -82,12 +82,17 @@ namespace CrosswordPrint
                 int.TryParse(End.Text, out max);
                 Progress.Maximum = max;
                 worker.RunWorkerAsync(o);
+                TaskbarItemInfo.ProgressState = System.Windows.Shell.TaskbarItemProgressState.Normal;
             }
         }
 
         void worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             Progress.Value = e.ProgressPercentage;
+            Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+            {
+                TaskbarItemInfo.ProgressValue = ((e.ProgressPercentage - Progress.Minimum) / (Progress.Maximum - Progress.Minimum));
+            }));
         }
 
         void worker_DoWork(object sender, DoWorkEventArgs e)
@@ -120,6 +125,7 @@ namespace CrosswordPrint
         void worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             Progress.Value = Progress.Minimum;
+            TaskbarItemInfo.ProgressState = System.Windows.Shell.TaskbarItemProgressState.None;
             System.Diagnostics.Process.Start(System.IO.Path.GetTempPath() + "\\print.html");
             int next = int.Parse(End.Text);
             next++;

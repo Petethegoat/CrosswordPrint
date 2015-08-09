@@ -2,6 +2,9 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Crossword Print" Height="155" Width="337" ResizeMode="CanMinimize" SizeToContent="WidthAndHeight" Background="#FFF0F0F0" Icon="Chrisbanks2-Cold-Fusion-Hd-Crossword.ico">
+    <Window.TaskbarItemInfo>
+        <TaskbarItemInfo/>
+    </Window.TaskbarItemInfo>
     <Grid>
         <TextBox x:Name="URL" HorizontalAlignment="Left" Height="23" Margin="46,13,0,0" Text="http://www.theguardian.com/crosswords/quick/*n*/print" VerticalAlignment="Top" Width="284" MaxLines="1" IsEnabled="False"/>
         <Label Content="URL" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
